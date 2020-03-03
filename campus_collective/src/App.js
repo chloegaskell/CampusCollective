@@ -7,6 +7,7 @@ import Login from './components/User_Login/User_Login';
 import SignUp from './components/create_account/create_account';
 import Help from './components/Help/Help';
 import Home from './components/dashboard/Dashboard';
+import ItemDetails from './components/Item_Details/ItemDetails';
 
 
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/Help" component={Help}/>
             <Route path="/" exact={true} component={Login}/>
             <Route path="/Home" component={Home}/>
+            <Route path="/ItemDetails" component={ItemDetails}/>
         </div>
      </Router>
     );

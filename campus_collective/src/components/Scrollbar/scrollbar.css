@@ -1,0 +1,10 @@
+.noScrollbar {
+  scrollbar-width: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: grid;
+  overflow: hidden;
+}
+.noScrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -128,6 +128,7 @@ export default function SignUp(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            href="/Home"
           >
             Sign Up
           </Button>

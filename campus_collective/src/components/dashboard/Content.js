@@ -9,6 +9,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import Scrollbar from '../Scrollbar/scrollbar.css';
 
 import toolbox from '../Images/toolbox.jpg';
 import bike from '../Images/bike.jpg';
@@ -19,6 +23,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         paddingLeft: 26,
         paddingTop: 26,
+        overflow: 'hidden',
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -83,6 +88,25 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         overflow: 'hidden'
     },
+    gridList: {
+      flexWrap: 'nowrap',
+      // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+      transform: 'translateZ(0)',
+      overflowX: 'scroll',
+    },
+    underline: {
+      marginRight: 26,
+    },
+    tile: {
+      minWidth: 345,
+      marginTop: 26,
+      marginRight: 26,
+      marginBottom: 26,
+    },
+    gridDiv: {
+      display: 'grid',
+      overflow: 'hidden',
+    },
 }));
 
 export default function SearchAppBar() {
@@ -90,15 +114,18 @@ export default function SearchAppBar() {
 
     return (
         <div className={classes.root}>
-        
+
             <Typography component="h1" variant="h5">
                 My Items
             </Typography>
             <Divider className={classes.underline}/>
-            
-            <Box className={classes.cardSet}>
+
+            <div className={classes.gridDiv}>
+            <GridList className={classes.gridList} cols={'auto'} cellHeight={'auto'}>
+              <GridListTile className={classes.tile}>
                 <Card className={classes.card}>
-                    <CardActionArea>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={toolbox}
@@ -122,9 +149,11 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
-
+              </GridListTile>
+              <GridListTile className={classes.tile}>
                 <Card className={classes.card}>
-                    <CardActionArea>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={bike}
@@ -135,7 +164,7 @@ export default function SearchAppBar() {
                                 Bicycle
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                                Bike is great for ages 10 and up and fits an inseam of 70-85 cm (28-34 in.). 
+                                Bike is great for ages 10 and up and fits an inseam of 70-85 cm (28-34 in.).
                             </Typography>
                         </CardContent>
                     </CardActionArea>
@@ -148,7 +177,8 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
-    
+              </GridListTile>
+              <GridListTile className={classes.tile}>
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardMedia
@@ -174,17 +204,22 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
-            </Box>     
-    
-    
+              </GridListTile>
+                </GridList>
+              </div>
+
+
             <Typography component="h1" variant="h5">
                 My Rentals
             </Typography>
             <Divider className={classes.underline}/>
-                
-            <Box className={classes.cardSet}>
-                <Card className={classes.card}>
-                    <CardActionArea>
+
+            <div className={classes.gridDiv}>
+              <GridList className={classes.gridList} cols={'auto'} cellHeight={'auto'}>
+                <GridListTile className={classes.tile}>
+                  <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={toolbox}
@@ -203,21 +238,27 @@ export default function SearchAppBar() {
                         <Button size="small" color="primary">
                             Contact Owner
                         </Button>
-                        <Button size="small" color="primary">
+                        <Button size="small" color="primary"
+                          href="/ItemDetails">
                             View Details
                         </Button>
                     </CardActions>
-                </Card>
-            </Box>     
-    
+                  </Card>
+                </GridListTile>
+              </GridList>
+            </div>
+
             <Typography component="h1" variant="h5">
                 Suggested Rentals
             </Typography>
             <Divider className={classes.underline}/>
-                
-            <Box className={classes.cardSet}>
+
+            <div className={classes.gridDiv}>
+            <GridList className={classes.gridList} cols={'auto'} cellHeight={'auto'}>
+              <GridListTile className={classes.tile}>
                 <Card className={classes.card}>
-                    <CardActionArea>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={toolbox}
@@ -241,8 +282,11 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
                 <Card className={classes.card}>
-                    <CardActionArea>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={toolbox}
@@ -266,8 +310,11 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
                 <Card className={classes.card}>
-                    <CardActionArea>
+                    <CardActionArea
+                      href="/ItemDetails">
                         <CardMedia
                             className={classes.media}
                             image={toolbox}
@@ -291,7 +338,121 @@ export default function SearchAppBar() {
                         </Button>
                     </CardActions>
                 </Card>
-            </Box>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            Contact Owner
+                        </Button>
+                        <Button size="small" color="primary">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            Contact Owner
+                        </Button>
+                        <Button size="small" color="primary">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            Contact Owner
+                        </Button>
+                        <Button size="small" color="primary">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+              <GridListTile  className={classes.tile}>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            Contact Owner
+                        </Button>
+                        <Button size="small" color="primary">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+            </GridList>
+            </div>
         </div>
     );
 }
