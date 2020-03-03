@@ -89,12 +89,13 @@ const SignIn = props => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            href="/Home"
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/CreateAccount" variant="body2">
+              <Link href="/SignUp" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

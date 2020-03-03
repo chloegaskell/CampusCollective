@@ -3,21 +3,15 @@ import PropTypes from 'prop-types';
 import { createMuiTheme, withStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
 import Content from './Content';
 import Header from '../Header/Header';
-import Toolbar from '@material-ui/core/Toolbar';
-
-
 
 let theme = createMuiTheme({
   typography: {
     h5: {
-      fontWeight: 500,
-      fontSize: 26,
-      letterSpacing: 0.5,
-        paddingLeft: 26,
-        paddingTop: 26,
+        fontWeight: 500,
+        fontSize: 26,
+        letterSpacing: 0.5,
     },
   },
   palette: {
@@ -137,12 +131,12 @@ const styles = {
     },
   },
   appContent: {
-    flexGrow: 1,
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
   },
   mainContent: {
-    flexGrow: 1,
+    flex: 1,
     //padding: '48px 36px 0',
     background: '#eaeff1',
   },
@@ -153,6 +147,10 @@ class Paperbase extends React.Component {
     mobileOpen: false,
   };
 
+  handleDrawerToggle = () => {
+    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -160,7 +158,6 @@ class Paperbase extends React.Component {
       <ThemeProvider theme={theme}>
         <div className={classes.root}>
           <CssBaseline />
-
           <div className={classes.appContent}>
             <Header onDrawerToggle={this.handleDrawerToggle} />
             <main className={classes.mainContent}>

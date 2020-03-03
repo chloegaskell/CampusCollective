@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "@material-ui/icons": "^4.2.1",
+    "@material/top-app-bar": "^5.1.0",
     "firebase": "^6.3.1",
     "json-server": "^0.15.0",
     "react": "^16.8.6",
