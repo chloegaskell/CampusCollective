@@ -14,6 +14,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import Link from '@material-ui/core/Link';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -73,7 +76,7 @@ const useStyles = makeStyles(theme => ({
 
 function Header(props) {
     const classes = useStyles();
-    
+
     //Appbar JS
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -98,8 +101,14 @@ function Header(props) {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem>
+              <Link href='/Login'>Logout
+              </Link>
+              </MenuItem>
+            <MenuItem><Link href='/AccountEdit'>My Account
+            </Link></MenuItem>
+            <MenuItem><Link href='/AccountDetails'>Edit my Info
+            </Link></MenuItem>
         </Menu>
     );
     //Appbar JS End
@@ -107,24 +116,33 @@ function Header(props) {
 
   return (
     <div className={classes.root}>
-        
-        
+
+
             <AppBar position="static">
                 <Toolbar>
+                    <IconButton edge="start" color="inherit" href="/Home">
+                      <DashboardIcon/>
+                    </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Dashboard
+                        Campus Collective
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
                         <InputBase
+                            fullWidth='true'
                             placeholder="Search…"
                             classes={{
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }}
                             inputProps={{ 'aria-label': 'search' }}
+                            onKeyPress={event => {
+                                if (event.key === 'Enter') {
+                                  window.location.href="/Search"
+                                }
+                              }}
                         />
                     </div>
                     <div className={classes.root}/>

@@ -14,12 +14,6 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Scrollbar from '../Scrollbar/scrollbar.css';
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
 import toolbox from '../Images/toolbox.jpg';
 import bike from '../Images/bike.jpg';
 import add from '../Images/add.png';
@@ -43,9 +37,9 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
     },
     gridList: {
-      flexWrap: 'nowrap',
+      flexWrap: 'flexWrap',
+    justifyContent: 'space-around',
       // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-      transform: 'translateZ(0)',
     },
     underline: {
       marginRight: 26,
@@ -61,21 +55,12 @@ const useStyles = makeStyles(theme => ({
 export default function SearchAppBar() {
     const classes = useStyles();
 
-    const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-
-    const handleClose = () => {
-      setOpen(false);
-    };
-
     return (
         <div className={classes.root}>
 
+
             <Typography component="h1" variant="h5">
-                My Items
+                Search Results
             </Typography>
             <Divider className={classes.underline}/>
 
@@ -92,100 +77,10 @@ export default function SearchAppBar() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Tool Set
+                                Placeholder
                             </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                                210-piece tools kit is a great back-up set to stash in your house or vehicle for emergency repairs.
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary"
-                        onClick={handleClickOpen}>
-                            See Requests
-                        </Button>
-                        <Button size="small" color="primary" href="/ItemEdit">
-                            Edit item
-                        </Button>
-                    </CardActions>
-                </Card>
-              </GridListTile>
-              <GridListTile>
-                <Card className={classes.card}>
-                    <CardActionArea
-                      href="/ItemDetails">
-                        <CardMedia
-                            className={classes.media}
-                            image={bike}
-                            title="Bicycle"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Bicycle
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Bike is great for ages 10 and up and fits an inseam of 70-85 cm (28-34 in.).
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary"
-                        onClick={handleClickOpen}>
-                            See Requests
-                        </Button>
-                        <Button size="small" color="primary"  href="/ItemEdit">
-                            Edit item
-                        </Button>
-                    </CardActions>
-                </Card>
-              </GridListTile>
-              <GridListTile>
-                <Card className={classes.card}>
-                    <CardActionArea
-                    href='/ItemEdit'>
-                        <CardMedia
-                            className={classes.media}
-                            image={add}
-                            title="Add"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Upload Item
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Click here to upload a new item, set your price, add information and start renting
-                            </Typography>
-                        </CardContent>
-                    </CardActionArea>
-
-                </Card>
-              </GridListTile>
-                </GridList>
-              </div>
-
-
-            <Typography component="h1" variant="h5">
-                My Rentals
-            </Typography>
-            <Divider className={classes.underline}/>
-
-            <div className={classes.gridDiv}>
-            <GridList className={classes.gridList} cols={'auto'} cellHeight={375} spacing={26}>
-                <GridListTile>
-                  <Card className={classes.card}>
-                    <CardActionArea
-                      href="/ItemDetails">
-                        <CardMedia
-                            className={classes.media}
-                            image={toolbox}
-                            title="Toolbox"
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                Tool Set
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                210-piece tools kit is a great back-up set to stash in your house or vehicle for emergency repairs.
+                                All items here are just for UI design purposes. These are just placeholders.
                             </Typography>
                         </CardContent>
                     </CardActionArea>
@@ -193,23 +88,96 @@ export default function SearchAppBar() {
                         <Button size="small" color="primary" href="/ItemDetails">
                             Request Rental
                         </Button>
-                        <Button size="small" color="primary"
-                          href="/ItemDetails">
+                        <Button size="small" color="primary" href="/ItemDetails">
                             View Details
                         </Button>
                     </CardActions>
-                  </Card>
-                </GridListTile>
-              </GridList>
-            </div>
-
-            <Typography component="h1" variant="h5">
-                Suggested Rentals
-            </Typography>
-            <Divider className={classes.underline}/>
-
-            <div className={classes.gridDiv}>
-            <GridList className={classes.gridList} cols={'auto'} cellHeight={375} spacing={26}>
+                </Card>
+              </GridListTile>
+              <GridListTile>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            Request Rental
+                        </Button>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+              <GridListTile>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            Request Rental
+                        </Button>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
+              <GridListTile>
+                <Card className={classes.card}>
+                    <CardActionArea
+                      href="/ItemDetails">
+                        <CardMedia
+                            className={classes.media}
+                            image={toolbox}
+                            title="Toolbox"
+                        />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Placeholder
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                All items here are just for UI design purposes. These are just placeholders.
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            Request Rental
+                        </Button>
+                        <Button size="small" color="primary" href="/ItemDetails">
+                            View Details
+                        </Button>
+                    </CardActions>
+                </Card>
+              </GridListTile>
               <GridListTile>
                 <Card className={classes.card}>
                     <CardActionArea
@@ -408,25 +376,6 @@ export default function SearchAppBar() {
               </GridListTile>
             </GridList>
             </div>
-
-            <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Rental Requested"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              There are no current requests for this item.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary" autoFocus>
-              Okay
-            </Button>
-          </DialogActions>
-        </Dialog>
         </div>
     );
 }
