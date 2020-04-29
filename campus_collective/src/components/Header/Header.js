@@ -105,9 +105,9 @@ function Header(props) {
               <Link href='/Login'>Logout
               </Link>
               </MenuItem>
-            <MenuItem><Link href='/AccountEdit'>My Account
+            <MenuItem><Link href='/AccountDetails'>My Account
             </Link></MenuItem>
-            <MenuItem><Link href='/AccountDetails'>Edit my Info
+            <MenuItem><Link href='/AccountEdit'>Edit my Info
             </Link></MenuItem>
         </Menu>
     );

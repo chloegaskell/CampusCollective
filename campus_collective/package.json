@@ -1,20 +1,26 @@
 {
-  "name": "Text_Trade_React",
+  "name": "Campus_Collective_React",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.2.0",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/lab": "^4.0.0-alpha.45",
     "@material/top-app-bar": "^5.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
     "firebase": "^6.3.1",
     "json-server": "^0.15.0",
     "material-ui-rating": "^4.2.0",
+    "mysql": "^2.18.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-validation": "^3.0.7",
     "reactjs-popup": "^1.4.1",
     "recharts": "^1.6.2",
     "redux": "^4.0.4",
@@ -41,5 +47,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "demo_db_connection.js",
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
